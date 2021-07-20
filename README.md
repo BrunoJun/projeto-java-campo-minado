@@ -36,6 +36,12 @@ Este projeto tem como intuito solidificar o conhecimento adquirido durante o cur
 
 ***
 
+## Licença
+
+Este projeto utiliza a licença MIT License. Para mais informações acesse <a href="https://github.com/BrunoJun/projeto-java-campo-minado/blob/32ac135d0498e33aa3174d5b334a163b6f3c45a0/LICENSE">LICENSE</a>.
+
+***
+
 ## Autor
 
 Feito por Bruno Jun Amanai Yamada.
