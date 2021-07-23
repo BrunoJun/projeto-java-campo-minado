@@ -30,9 +30,15 @@ Este projeto tem como intuito solidificar o conhecimento adquirido durante o cur
 
 ***
 
+## Link do curso
+
+<a href = "https://www.udemy.com/share/101rUm2@FEdKVGJgS1QOe0NKBXFxfhRuSg==/"> CURSO DE JAVA </a>
+
+***
+
 ## Status
 
-:construction: **Em andamento** :construction:
+:white_check_mark: **Finalizado** :white_check_mark:
 
 ***
 
