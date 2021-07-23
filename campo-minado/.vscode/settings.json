@@ -1,3 +1,11 @@
 {
-    "java.dependency.packagePresentation": "hierarchical"
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.project.sourcePaths": [
+        "src",
+        "test"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\BrunoJun\\Documents\\Cursos_geral\\DIO\\junit-platform-console-standalone-1.7.2.jar"
+    ]
 }

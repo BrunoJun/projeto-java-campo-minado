@@ -109,6 +109,11 @@ public class Campo {
         return linha;
     }
 
+    public List<Campo> getVizinhos() {
+        
+        return vizinhos;
+    }
+
     boolean objetivoAlcancado() {
         boolean desvendado = !minado & aberto;
         boolean protegido = minado & marcado;
