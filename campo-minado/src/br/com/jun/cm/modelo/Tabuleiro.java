@@ -75,8 +75,21 @@ public class Tabuleiro {
 
         StringBuilder sb = new StringBuilder();
 
+        sb.append(" ");
+        sb.append(" ");
+        for (int coluna = 0; coluna < colunas; coluna++) {
+
+            sb.append(" ");
+            sb.append(coluna);
+            sb.append(" ");
+        }
+        sb.append("\n");
+
         int i = 0;
         for (int linha = 0; linha < linhas; linha++) {
+
+            sb.append(linha);
+            sb.append(" ");
             for (int coluna = 0; coluna < colunas; coluna++) {
              
                 sb.append(" ");
