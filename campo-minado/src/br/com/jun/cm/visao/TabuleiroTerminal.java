@@ -77,6 +77,7 @@ public class TabuleiroTerminal {
                 }
             }
             
+            System.out.println(tabuleiro);
             System.out.println("Ganhou o jogo!");
         } catch (ExplosaoException e) {
             

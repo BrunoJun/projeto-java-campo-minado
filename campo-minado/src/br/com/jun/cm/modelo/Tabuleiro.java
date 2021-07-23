@@ -51,11 +51,11 @@ public class Tabuleiro {
         long minasArmadas = 0;
         Predicate<Campo> minado = campo -> campo.isMinado();
 
-        while (minasArmadas < this.quantidadeMinas - 1){
+        while (minasArmadas < this.quantidadeMinas){
 
-            minasArmadas = campos.stream().filter(minado).count();
             int aleatorio = (int) (Math.random() * campos.size());
             campos.get(aleatorio).minar();
+            minasArmadas = campos.stream().filter(minado).count();
         }
     }
 
