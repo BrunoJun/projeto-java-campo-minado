@@ -8,8 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.com.jun.cm.excecao.ExplosaoException;
-
 public class CampoTeste {
     
     private Campo campo;
@@ -99,16 +97,6 @@ public class CampoTeste {
     }
 
     @Test
-    void testeAbrirMinadoENaoMarcado(){
-
-        campo.minar();
-        assertThrows(ExplosaoException.class, () -> {
-
-            campo.abrir();
-        });
-    }
-
-    @Test
     void testeAbrirComVizinhos(){
         Campo vizinho1 = new Campo(2, 2);
         Campo vizinhoDovizinho1 = new Campo(1, 1);
@@ -167,7 +155,7 @@ public class CampoTeste {
         try{
 
             campo.abrir();
-        } catch (ExplosaoException e){
+        } catch (Exception e){
         }
 
         assertEquals("*", campo.toString());

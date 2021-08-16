@@ -2,17 +2,17 @@ package br.com.jun.cm.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import br.com.jun.cm.excecao.ExplosaoException;
-
-public class Tabuleiro {
+public class Tabuleiro implements CampoObservador{
     
     private int linhas;
     private int colunas;
     private int quantidadeMinas;
 
     private final List<Campo> campos = new ArrayList<>();
+    private List<Consumer<ResultadoEvento>> observadores = new ArrayList<>();
 
     public Tabuleiro(int linhas, int colunas, int quantidadeMinas) {
 
@@ -30,10 +30,19 @@ public class Tabuleiro {
         for (int linha = 0; linha < linhas; linha++) {
            for (int coluna = 0; coluna < colunas; coluna++) {
                 
-                campos.add(new Campo(linha, coluna));
+                Campo campo = new Campo(linha, coluna);
+                campo.registrarObservador(this);
+                campos.add(campo);
             }
         }
 
+    }
+
+    private void mostrarMinas() {
+
+        campos.stream()
+        .filter(c -> c.isMinado())
+        .forEach(campo -> campo.setAberto(true));
     }
 
     private void associarVizinhos() {
@@ -59,6 +68,16 @@ public class Tabuleiro {
         }
     }
 
+    private void notificarObservadores(Boolean resultado){
+
+        observadores.stream().forEach(o -> o.accept(new ResultadoEvento(resultado)));
+    }
+
+    public void registrarObservador(Consumer<ResultadoEvento> observador){
+
+        observadores.add(observador);
+    }
+
     public boolean objetivoAlcancado() {
 
         return campos.stream().allMatch(campo -> campo.objetivoAlcancado());
@@ -70,51 +89,11 @@ public class Tabuleiro {
         sortearMinas();
     }
 
-    @Override
-    public String toString() {
-
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(" ");
-        sb.append(" ");
-        for (int coluna = 0; coluna < colunas; coluna++) {
-
-            sb.append(" ");
-            sb.append(coluna);
-            sb.append(" ");
-        }
-        sb.append("\n");
-
-        int i = 0;
-        for (int linha = 0; linha < linhas; linha++) {
-
-            sb.append(linha);
-            sb.append(" ");
-            for (int coluna = 0; coluna < colunas; coluna++) {
-             
-                sb.append(" ");
-                sb.append(campos.get(i));
-                sb.append(" ");
-                i++;
-            }
-            sb.append("\n");
-        }
-
-        return sb.toString();
-    }
-
     public void abrir(int linha, int coluna){
-
-        try {
-            
-            campos.parallelStream().filter(campo -> campo.getLinha() == linha && campo.getColuna() == coluna)
-            .findFirst()
-            .ifPresent(c -> c.abrir());
-        } catch (ExplosaoException e) {
-            
-            campos.forEach(campo -> campo.setAberto(true));
-            throw e;
-        }
+   
+        campos.parallelStream().filter(campo -> campo.getLinha() == linha && campo.getColuna() == coluna)
+        .findFirst()
+        .ifPresent(c -> c.abrir());
     }
 
     public void marcar(int linha, int coluna){
@@ -142,5 +121,18 @@ public class Tabuleiro {
     public int getColunas() {
         
         return colunas;
+    }
+
+    @Override
+    public void eventoOcorreu(Campo c, CampoEvento e) {
+        
+        if(e == CampoEvento.EXPLODIR) {
+
+            mostrarMinas();
+            notificarObservadores(false);
+        } else if (objetivoAlcancado()){
+
+            notificarObservadores(true);
+        }
     }
 }
