@@ -66,46 +66,5 @@ public class TabuleiroTeste {
 
         assertEquals(tabuleiro.getQuantidadeMinas(), quantidadeMinados);
     }
-
-    @Test
-    void TesteToString(){
-        String comparacao = "";
-
-        for (int i = 0; i < tabuleiro.getLinhas(); i++) {
-            for (int j = 0; j < tabuleiro.getColunas(); j++) {
-                
-                comparacao += " ";
-                comparacao += "?";
-                comparacao += " ";
-            }
-            comparacao += "\n";
-        }
-
-        assertEquals(comparacao, tabuleiro.toString());
-    }
-
-    @Test
-    void TesteMarcar(){
-        int campoSemMina = 0;
-        int campoSemMinaLinha = 0;
-        int campoSemMinaColuna = 0;
-        int tamanho = tabuleiro.getCampos().size();
-
-        for (int i = 0; i < tamanho; i++) {
-            
-            if (tabuleiro.getCampos().get(i).isMinado()){
-
-                campoSemMina = i;
-                campoSemMinaColuna =  tabuleiro.getCampos().get(i).getColuna();
-                campoSemMinaLinha = tabuleiro.getCampos().get(i).getLinha();
-                break;
-            }
-        }
-
-        tabuleiro.marcar(campoSemMinaLinha, campoSemMinaColuna);
-        String stringAtual = tabuleiro.getCampos().get(campoSemMina).toString();
-
-        assertEquals("x", stringAtual);
-    }
 }
 

@@ -2,7 +2,6 @@ package br.com.jun.cm.modelo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -137,56 +136,5 @@ public class CampoTeste {
         campo.minar();
 
         assertEquals(2, vizinho1.minasNaVizinhanca());
-    }
-
-    @Test
-    void testeToStringMarcado(){
-
-        campo.alternarMarcacao();
-
-        assertEquals("x", campo.toString());
-    }
-
-    @Test
-    void testeToStringExplodido(){
-
-        campo.minar();
-
-        try{
-
-            campo.abrir();
-        } catch (Exception e){
-        }
-
-        assertEquals("*", campo.toString());
-    }
-
-    @Test
-    void testeToStringNumeroMinasVizinhas(){
-
-        Campo vizinho1 = new Campo(2, 2);
-        Campo vizinho2 = new Campo(2, 2);
-        vizinho1.minar();
-        vizinho2.minar();
-
-        campo.adicionarVizinho(vizinho1);
-        campo.adicionarVizinho(vizinho2);
-        campo.abrir();
-
-        assertEquals("2", campo.toString());
-    }
-
-    @Test
-    void testeToStringAberto(){
-
-        campo.abrir();
-
-        assertEquals(" ", campo.toString());
-    }
-
-    @Test
-    void testeToStringFechado(){
-
-        assertEquals("?", campo.toString());
     }
 }
