@@ -15,6 +15,7 @@ Este projeto tem como intuito solidificar o conhecimento adquirido durante o cur
 * Classes e métodos.
 * Streams APIs (expressões lambdas).
 * Aplicação do paradigma orientado a objetos.
+* Aplicação de conceitos básicos sobre GUI (Swing).
 * Princípios do padrão de projetos MVC e Observer.
 * Conceitos básicos de testes unitários (JUnit 5).
 
