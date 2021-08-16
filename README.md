@@ -15,7 +15,7 @@ Este projeto tem como intuito solidificar o conhecimento adquirido durante o cur
 * Classes e métodos.
 * Streams APIs (expressões lambdas).
 * Aplicação do paradigma orientado a objetos.
-* Princípios do padrão de projetos MVC.
+* Princípios do padrão de projetos MVC e Observer.
 * Conceitos básicos de testes unitários (JUnit 5).
 
 :exclamation: O projeto não apresenta **, por enquanto,** uma interface gráfica, é executado pelo terminal, futuramente será aplicado com a API Swing :exclamation:
@@ -38,7 +38,7 @@ Este projeto tem como intuito solidificar o conhecimento adquirido durante o cur
 
 ## Status
 
-:white_check_mark: **Finalizado** :white_check_mark:
+:construction: **Em andamento: aplicando Swing** :construction:
 
 ***
 
