@@ -42,6 +42,7 @@ public class Tabuleiro implements CampoObservador{
 
         campos.stream()
         .filter(c -> c.isMinado())
+        .filter(c -> !c.isMarcado())
         .forEach(campo -> campo.setAberto(true));
     }
 
