@@ -19,8 +19,6 @@ Este projeto tem como intuito solidificar o conhecimento adquirido durante o cur
 * Princípios do padrão de projetos Observer.
 * Conceitos básicos de testes unitários (JUnit 5).
 
-:exclamation: O projeto não apresenta **, por enquanto,** uma interface gráfica, é executado pelo terminal, futuramente será aplicado com a API Swing :exclamation:
-
 ***
 
 ## Tecnologias
@@ -39,7 +37,7 @@ Este projeto tem como intuito solidificar o conhecimento adquirido durante o cur
 
 ## Status
 
-:construction: **Em andamento: aplicando Swing** :construction:
+:white_check_mark: **Finalizado** :white_check_mark:
 
 ***
 
